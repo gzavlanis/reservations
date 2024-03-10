@@ -1,6 +1,7 @@
 import React from "react";
 import Calendar from "@ericz1803/react-google-calendar";
 import { css } from "@emotion/react";
+import { Container } from "react-bootstrap";
 
 const API_KEY = "AIzaSyABER1JffMw2q9GXMwXG7oORlP_NjBsvOo";
 let calendars = [
@@ -27,14 +28,14 @@ const language = 'EN';
 export default class Chris extends React.Component {
     render() {
         return (
-            <div>
+            <Container>
                 <Calendar 
                     apiKey = {API_KEY} 
                     calendars = {calendars}
                     styles = {styles}
                     language = {language}
                 />
-            </div>
+            </Container>
         );
     }
 };
