@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Row, Col, Button, Card, CardHeader, CardTitle, CardBody, CardFooter } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import logo from '../assets/logo.png';
 
 export default function Home() {
     const navigate = useNavigate();
@@ -15,13 +16,15 @@ export default function Home() {
 
     return (
         <Container className="text-center mt-4">
-            <h2>Welcome to our calendars page</h2>
+            <img src={logo} width={"700vw"} className="img-fluid" alt="logo" />
+            <h2>Welcome to your calendars page!</h2>
             <hr className="hr-3"></hr>
             <h4>The Application is up and running!</h4>
-            <Card className="mt-5">
+            <p>This is the application where you can see directly your reservations' calendars with real data, taken from Google Calendars</p>
+            <Card className="mt-5 mb-5">
                 <CardHeader>
                     <CardTitle>
-                        <h3>Calendars</h3>
+                        <h3>Available Calendars</h3>
                     </CardTitle>
                 </CardHeader>
                 <CardBody>
