@@ -21,7 +21,7 @@ export default function Home() {
             <hr className="hr-3"></hr>
             <h4>The Application is up and running!</h4>
             <p>This is the application where you can see directly your reservations' calendars with real data, taken from Google Calendars</p>
-            <Card className="mt-5 mb-5">
+            <Card className="mt-5 mb-5 border-0 shadow-lg">
                 <CardHeader>
                     <CardTitle>
                         <h3>Available Calendars</h3>
