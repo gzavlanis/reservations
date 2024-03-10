@@ -28,7 +28,7 @@ const language = 'EN';
 export default class Chris extends React.Component {
     render() {
         return (
-            <Container>
+            <Container fluid>
                 <Calendar 
                     apiKey = {API_KEY} 
                     calendars = {calendars}
