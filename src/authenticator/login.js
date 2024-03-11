@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import { Container, Button } from "react-bootstrap";
+import { Container, Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
@@ -46,28 +46,34 @@ export default function Login() {
   };
 
   const renderForm = (
-    <form onSubmit={handleSubmit}>
-      <div className="form-outline mb-4">
-        <input type="text" name="uname" className="form-control" required />
-        <label>Username</label>
+    <Form onSubmit={handleSubmit}>
+      <Form.Group className="form-outline mb-4">
+        <Form.Control
+          type="text"
+          name="uname"
+          placeholder="Username"
+          required
+        />
         {renderErrorMessage("uname")}
-      </div>
-      <div className="form-outline mb-4">
-        <input type="password" name="pass" className="form-control" required />
-        <label>Password</label>
+      </Form.Group>
+      <Form.Group className="form-outline mb-4">
+        <Form.Control
+          type="password"
+          name="pass"
+          placeholder="Password"
+          required
+        />
         {renderErrorMessage("pass")}
-      </div>
-      <div>
-        <Button className="btn btn-success" type="submit">
-          <h4>Login</h4>
-        </Button>
-      </div>
-    </form>
+      </Form.Group>
+      <Button variant="success" type="submit">
+        <h5>Login</h5>
+      </Button>
+    </Form>
   );
 
   return (
     <div>
-      <Container className="w-50 mt-5 shadow-lg p-5">
+      <Container className="mt-5 shadow-lg p-5 bg-light">
         <h2 className="h2">Welcome Back!</h2>
         {isSubmitted ? navigateToHome() : renderForm}
       </Container>
