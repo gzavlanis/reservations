@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import { Button, Container } from "react-bootstrap";
+import { Container, Button } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const database = [
@@ -38,33 +39,37 @@ export default function Login() {
     } else setErrorMessages({ name: "uname", message: errors.uname });
   };
 
+  const navigate = useNavigate();
+
+  const navigateToHome = () => {
+    navigate("/home");
+  };
+
   const renderForm = (
-    <div className="form">
-      <form onSubmit={handleSubmit}>
-        <div className="input-container">
-          <label>Username</label>
-          <input type="text" name="uname" required />
-          {renderErrorMessage("uname")}
-        </div>
-        <div className="input-container">
-          <label>Password</label>
-          <input type="password" name="pass" required />
-          {renderErrorMessage("pass")}
-        </div>
-        <div>
-          <Button>
-            <input type="submit" />
-          </Button>
-        </div>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <div className="form-outline mb-4">
+        <input type="text" name="uname" className="form-control" required />
+        <label>Username</label>
+        {renderErrorMessage("uname")}
+      </div>
+      <div className="form-outline mb-4">
+        <input type="password" name="pass" className="form-control" required />
+        <label>Password</label>
+        {renderErrorMessage("pass")}
+      </div>
+      <div>
+        <Button className="btn btn-success" type="submit">
+          <h4>Login</h4>
+        </Button>
+      </div>
+    </form>
   );
 
   return (
     <div>
-      <Container>
-        <h2>Sign In</h2>
-        {isSubmitted ? window.location.href = '/' : renderForm}
+      <Container className="w-50 mt-5 shadow-lg p-5">
+        <h2 className="h2">Welcome Back!</h2>
+        {isSubmitted ? navigateToHome() : renderForm}
       </Container>
     </div>
   );
