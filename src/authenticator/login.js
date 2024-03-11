@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Button, Form } from "react-bootstrap";
+import { Container, Button, Form, InputGroup } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
 export default function Login() {
@@ -17,6 +17,8 @@ export default function Login() {
 
   const [errorMessages, setErrorMessages] = useState({});
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [passwordShown, setPasswordShown] = useState(false);
+  const [buttonText, setButtonText] = useState(<span>Show</span>);
 
   const renderErrorMessage = (name) => {
     name === errorMessages.name && (
@@ -44,6 +46,12 @@ export default function Login() {
     navigate("/home");
   };
 
+  const togglePassword = () => {
+    setPasswordShown(!passwordShown);
+    if (passwordShown === true) setButtonText(<span>Show</span>);
+    else if (passwordShown === false) setButtonText(<span>Hide</span>);
+  };
+
   const renderForm = (
     <Form onSubmit={handleSubmit}>
       <Form.Group className="form-outline mb-4">
@@ -56,13 +64,18 @@ export default function Login() {
         {renderErrorMessage("uname")}
       </Form.Group>
       <Form.Group className="form-outline mb-4">
-        <Form.Control
-          type="password"
-          name="pass"
-          placeholder="Password"
-          required
-        />
-        {renderErrorMessage("pass")}
+        <InputGroup>
+          <Form.Control
+            type={passwordShown ? "text" : "password"}
+            name="pass"
+            placeholder="Password"
+            required
+          />
+          <button className="input-group-text" onClick={togglePassword}>
+            {buttonText}
+          </button>
+          {renderErrorMessage("pass")}
+        </InputGroup>
       </Form.Group>
       <Button variant="success" type="submit">
         <h5>Login</h5>
