@@ -71,7 +71,7 @@ export default function Login() {
             placeholder="Password"
             required
           />
-          <button className="input-group-text" onClick={togglePassword}>
+          <button className="input-group-text" type="button" onClick={togglePassword}>
             {buttonText}
           </button>
           {renderErrorMessage("pass")}
