@@ -32,13 +32,15 @@ export default function Login() {
     if (userData) {
       if (userData.password !== pass.value)
         setErrorMessages({ name: "pass", message: errors.pass });
-      else setIsSubmitted(true);
+      else {
+        setIsSubmitted(true);
+      }
     } else setErrorMessages({ name: "uname", message: errors.uname });
   };
 
   const renderForm = (
     <div className="form">
-      <form>
+      <form onSubmit={handleSubmit}>
         <div className="input-container">
           <label>Username</label>
           <input type="text" name="uname" required />
@@ -60,10 +62,10 @@ export default function Login() {
 
   return (
     <div>
-        <Container>
-            <h2>Sign In</h2>
-            {isSubmitted ? <div>Success</div> : renderForm}
-        </Container>
+      <Container>
+        <h2>Sign In</h2>
+        {isSubmitted ? window.location.href = '/' : renderForm}
+      </Container>
     </div>
-  )
+  );
 }
