@@ -7,11 +7,11 @@ const API_KEY = 'AIzaSyABER1JffMw2q9GXMwXG7oORlP_NjBsvOo'
 let calendars = [
   {
     calendarId: 'hf72rr7li3mgem45ub5nmjek1g4g1e95@import.calendar.google.com',
-    color: 'red'
+    color: '#005777'
   },
   {
     calendarId: 'mqldluekbn2dc32t4r2or96sne17gghl@import.calendar.google.com',
-    color: 'blue'
+    color: '#005777'
   }
 ]
 
