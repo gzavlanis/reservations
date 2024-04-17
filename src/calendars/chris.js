@@ -22,17 +22,18 @@ let styles = {
 
   today: css`
     color: red;
-    border: 1px solid red;
+    border: 1px solid blue;
   `
 }
 
 const language = 'EN'
+const showFooter = false
 
 export default class Chris extends React.Component {
   render() {
     return (
       <Container fluid>
-        <Calendar apiKey={API_KEY} calendars={calendars} styles={styles} language={language} />
+        <Calendar apiKey={API_KEY} calendars={calendars} styles={styles} language={language} showFooter={showFooter}/>
       </Container>
     )
   }
